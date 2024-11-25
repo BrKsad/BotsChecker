@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yorumlar - UniversalBotSupport</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>UniversalBotSupport</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="products.html">Ürünler</a></li>
+                <li><a href="contact.html">Yorumlar</a></li>
+                <li><a href="register.html">Kayıt Ol</a></li>
+                <li><a href="login.html">Giriş Yap</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Yorumlar</h2>
+
+        <!-- Bakımda olduğunda gösterilecek mesaj -->
+        <div id="maintenance-message" style="display: none;">
+            <h3>Yorumlar Kısmı Şuanda Bakımda</h3>
+        </div>
+
+        <!-- Yorum formu kısmı, bakımda değilse görünür -->
+        <div id="comment-section" style="display: block;">
+            <form id="comment-form">
+                <label for="rating">Yıldız:</label>
+                <div id="rating-stars">
+                    <input type="radio" name="rating" id="star5" value="5"><label for="star5">☆</label>
+                    <input type="radio" name="rating" id="star4" value="4"><label for="star4">☆</label>
+                    <input type="radio" name="rating" id="star3" value="3"><label for="star3">☆</label>
+                    <input type="radio" name="rating" id="star2" value="2"><label for="star2">☆</label>
+                    <input type="radio" name="rating" id="star1" value="1"><label for="star1">☆</label>
+                </div>
+                <label for="comment">Yorum:</label>
+                <textarea id="comment" name="comment" required></textarea>
+                <button type="submit">Yorum Yap</button>
+            </form>
+            <div id="comment-list">
+                <!-- Yorumlar burada listelenecek -->
+            </div>
+            <p id="comment-count">0 yorum</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 UniversalBotSupport. Tüm hakları saklıdır.</p>
+    </footer>
+    <script src="scripts.js"></script>
+
+    <script>
+        // Sayfa yüklendiğinde yorumlar bakımda mı kontrol et
+        window.onload = function() {
+            var isMaintenanceMode = true; // Bakımda mı kontrol et (değiştirilebilir)
+
+            if (isMaintenanceMode) {
+                // Bakımda olduğunu göstermek için mesajı göster ve formu gizle
+                document.getElementById('maintenance-message').style.display = 'block';
+                document.getElementById('comment-section').style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>

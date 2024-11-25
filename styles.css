@@ -1,0 +1,266 @@
+:root {
+    --m: 1.5rem; 
+    --red: #FF6565;
+    --pink: #FF64F9;
+    --purple: #6B5FFF;
+    --blue: #4D8AFF;
+    --green: #5BFF89;
+    --yellow: #FFEE55;
+    --orange: #FF6D1B;
+}
+
+html, body {
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #141516;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    height: 100vh;
+}
+
+header {
+    background-color: #1a1a1a;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    padding-left: 50px;
+    flex: 1 0 auto; 
+    width: 100%;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.products, .product-list {
+    margin: 20px 0;
+}
+
+.product-item {
+    background-color: #333;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+footer {
+    background-color: #1a1a1a;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    width: 130%;
+    flex-shrink: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label, form input, form textarea {
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px; /* Butonlar arasında boşluk bırakmak için */
+}
+
+button {
+    border: calc(0.08 * var(--m)) solid transparent;
+    position: relative;
+    color: #F3F3F3;
+    font-family: 'Space Grotesk'; /* Diğer yazı stilleriyle uyumlu */
+    font-size: var(--m);
+    border-radius: calc(0.7 * var(--m));
+    padding: calc(0.25 * var(--m)) calc(0.5 * var(--m)); 
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    background: linear-gradient(#121213, #121213), linear-gradient(#121213 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)),  linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+    background-origin: border-box;
+    background-clip: padding-box, border-box, border-box;
+    background-size: 200%;
+    animation: animate 2s infinite linear;
+}
+
+button::before {
+    content: '';
+    background: linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+    height: 30%;
+    width: 60%;
+    position: absolute;
+    bottom: -20%;
+    z-index: -5;
+    background-size: 200%;
+    animation: animate 2s infinite linear;
+    filter: blur(calc(0.8 * var(--m)));
+}
+
+button:hover, button:hover::before {
+    animation: animate 0.5s infinite linear;
+}
+
+@keyframes animate {
+    0% {background-position: 0}
+    100% {background-position: 200%}
+}
+
+@media screen and (max-width: 1000px) {
+    :root {
+        --m: 1.5rem; 
+    }
+}
+
+/* Yorum yapma formu ve yıldızlı değerlendirme stil kuralları */
+#rating {
+    display: flex;
+    gap: 5px;
+}
+
+#rating input[type="radio"] {
+    display: none;
+}
+
+#rating label {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #FFD700; 
+}
+
+#rating input[type="radio"]:checked ~ label {
+    color: #FFD700;
+}
+
+#comment-list {
+    margin-top: 20px;
+}
+
+.comment-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #000000;
+}
+
+.comment-item .username {
+    font-weight: bold;
+}
+
+.comment-item .rating {
+    color: #FFD700;
+}
+
+/* Gizli ürünler */
+.product-item.hidden {
+    display: none;
+}
+
+/* Kullanıcı profil fotoğrafı stil kuralları */
+#userProfile {
+    position: absolute;
+    top: 20px;
+    right: 40px; /* Profil fotoğrafını sağa daha fazla kaydırdım */
+    display: block; /* Başlangıçta görünür */
+    cursor: pointer; /* Tıklanabilir olduğunu belirtmek için imleci değiştir */
+}
+
+/* Profil menüsü stil ayarları */
+.profile-menu {
+    position: absolute; /* Profil fotoğrafının altına yerleştirir */
+    background-color: rgba(255, 255, 255, 0.9); /* Yarı saydam beyaz arka plan */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Diğer öğelerin üstünde görünmesi için */
+    right: 35px; /* Sağdan konumlandırma */
+    display: none; /* Başlangıçta gizli */
+}
+
+/* Menü öğeleri için stil */
+.profile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-menu li {
+    padding: 10px 15px; /* Yatay ve dikey dolgu */
+    cursor: pointer; /* Tıklanabilir olduğunu belirtmek için imleci değiştir */
+    color: #141516; /* Metin rengi */
+    font-weight: normal; /* Normal yazı kalınlığı */
+    transition: background-color 0.3s; /* Geçiş efekti */
+}
+
+.profile-menu li:hover {
+    background-color: var(--blue); /* Üzerine gelindiğinde arka plan rengi değişir */
+    color: #fff; /* Metin rengini beyaz yap */
+}
+
+/* Profil fotoğrafı stil ayarları */
+#profilePhoto {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #fff; /* Beyaz kenarlık */
+    margin-right: 10px; /* Diğer içeriklerden biraz daha uzak olması için sağa boşluk bırak */
+}
+.category-selector {
+    margin: 15px 0; /* Üst ve alt kısımlara daha az boşluk bırak */
+    text-align: center; /* Metni ortala */
+    background-color: #2a2a2a; /* Kategori alanının yeni arka plan rengi */
+    padding: 10px; /* İçerik etrafında daha az boşluk bırak */
+    border-radius: 5px; /* Kenarları yuvarla */
+    font-size: 0.9rem; /* Font boyutunu küçült */
+}
+
+.category-selector label {
+    font-size: 1rem; /* Etiket font boyutunu küçült */
+    color: #FFD700; /* Etiket rengi */
+}
+
+.category-selector select {
+    margin-top: 5px; /* Etiketin altına daha az boşluk bırak */
+    padding: 8px; /* İçerik etrafında daha az boşluk bırak */
+    font-size: 0.9rem; /* Font boyutunu küçült */
+    border: 1px solid #FFD700; /* Kenarlık rengi */
+    border-radius: 5px; /* Kenarları yuvarla */
+    background-color: #1e1e1e; /* Arka plan rengi */
+    color: #FFD700; /* Metin rengi */
+}

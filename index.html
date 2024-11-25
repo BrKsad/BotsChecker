@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniversalBotSupport</title>
+    <link href="https://fonts.googleapis.com/css?family=Space%20Grotesk:700|Space%20Grotesk:400" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>UniversalBotSupport</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="products.html">Ürünler</a></li>
+                    <li><a href="contact.html">Yorumlar</a></li>
+                    <li><a href="register.html">Kayıt Ol</a></li>
+                    <li><a href="login.html">Giriş Yap</a></li>
+                </ul>
+            </nav>
+            <div id="userProfile" style="display: none;">
+                <img id="profilePhoto" src="" alt="Profil Fotoğrafı">
+                <div id="profileMenu" class="profile-menu" style="display: none;">
+                    <ul>
+                        <li onclick="viewProfile()">Profilimi Görüntüle</li>
+                        <li onclick="logout()">Çıkış Yap</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h2 class="hero">Hoşgeldiniz!</h2>
+        <p>UniversalBotSupport'a hoşgeldiniz. Discord için en iyi botları burada bulabilirsiniz.</p>
+
+        <!-- Kategori Seçme Alanı -->
+        <div class="category-selector">
+            <label for="botCategory">Bot Kategorisi Seçin:</label>
+            <select id="botCategory" onchange="filterProducts()">
+                <option value="all">Tüm Botlar</option>
+                <option value="music">Müzik Botları</option>
+                <option value="chat">Sohbet Botları</option>
+            </select>
+        </div>
+
+        <h2>Popüler Ürünler</h2>
+        <div class="product-list" id="productList">
+            <div class="product-item" data-category="music">
+                <h3>Universal Music Bot v4</h3>
+                <p>Özellikler:</p>
+                <ul>
+                    <li>Daha Kaliteli Ses</li>
+                    <li>Daha Fazla Playlist Ekleme</li>
+                    <li>Ve daha hızlı</li>
+                </ul>
+                <p>Fiyat: Şu anda ücretsiz</p>
+                <div class="button-container">
+                    <button onclick="purchaseProduct('Universal Music Bot v4', 0)">Satın Al</button>
+                    <button onclick="window.location.href='features.html'">Özellikler</button>
+                </div>
+            </div>
+            <div class="product-item" data-category="chat" id="botB">
+                <h3>Bot B</h3>
+                <p>Özellikler:</p>
+                <ul>
+                    <li>Özellik 1</li>
+                    <li>Özellik 2</li>
+                </ul>
+                <p>Fiyat: Şu anda ücretsiz</p>
+                <div class="button-container">
+                    <button onclick="purchaseProduct('Bot B', 30)">Satın Al</button>
+                    <button onclick="window.location.href='features.html'">Özellikler</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 UniversalBotSupport. Tüm hakları saklıdır.</p>
+        <p>Design By BrK</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
